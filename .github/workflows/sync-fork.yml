@@ -2,13 +2,15 @@ name: Sync Fork at 6am
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # Runs every day at 6am UTC
+    - cron: '15 11 * * *'  # Runs every day at 6am UTC
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Add the link to the main repo
+        run: git remote add https://github.com/EddieHubCommunity/BioDrop.git
       - name: Fetch upstream changes
         run: git fetch upstream
       - name: Merge upstream changes
