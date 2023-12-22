@@ -2,7 +2,7 @@ name: Sync Fork at 6am
 
 on:
   schedule:
-    - cron: '04 12 * * *'  # Runs every day at 6am UTC
+    - cron: '20 12 * * *'  # Runs every day at 6am UTC
 
 jobs:
   sync:
