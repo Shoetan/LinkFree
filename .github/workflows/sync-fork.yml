@@ -2,7 +2,7 @@ name: Sync Fork at 6am
 
 on:
   schedule:
-    - cron: '0 13 * * *'  # Runs every day at 6am UTC
+    - cron: '42 14 * * *'  # Runs every day at 6am UTC
 
 jobs:
   sync:
@@ -14,6 +14,9 @@ jobs:
       - name: Fetch upstream changes
         run: git fetch upstream
       - name: Merge upstream changes
-        run: git merge upstream/main --no-edit --allow-unrelated-histories
+        run: |
+          git config user.email emmysoetan@gmail.com
+          git config user.name Shoetan
+          git merge upstream/main --no-edit --allow-unrelated-histories
       - name: Push changes to forked repo
         run: git push origin main
